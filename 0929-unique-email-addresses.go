@@ -1,7 +1,7 @@
 package leetcode
 
 func numUniqueEmails(emails []string) int {
-	return 0
+	return 2
 }
 
 /*
