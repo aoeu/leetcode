@@ -1,7 +1,39 @@
 package leetcode
 
+import (
+	"strings"
+)
+
 func numUniqueEmails(emails []string) int {
-	return 2
+	m := make(map[string]struct{}, 0)
+	n := 0
+	for _, e := range emails {
+		s := strings.Split(e, "@")
+		if len(s) != 2 {
+			continue
+		}
+		e = scrub(s[0]) + "@" + s[1]
+		if _, ok := m[e]; ok {
+			continue
+		}
+		n++
+		m[e] = struct{}{}
+	}
+	return n
+}
+
+func scrub(localName string) string {
+	s := ""
+	for _, c := range localName {
+		switch {
+		case c == '.':
+		case c == '+':
+			return s
+		default:
+			s += string(c)
+		}
+	}
+	return s
 }
 
 /*
