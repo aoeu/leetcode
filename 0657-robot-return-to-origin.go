@@ -1,7 +1,25 @@
 package leetcode
 
+type coordinate struct {
+	x int
+	y int
+}
+
 func judgeCircle(moves string) bool {
-	return false
+	start, pos := coordinate{0, 0}, coordinate{0, 0}
+	for _, m := range moves {
+		switch m {
+		case 'U':
+			pos.y++
+		case 'D':
+			pos.y--
+		case 'L':
+			pos.x--
+		case 'R':
+			pos.x++
+		}
+	}
+	return start.x == pos.x && start.y == pos.y
 }
 
 /*
