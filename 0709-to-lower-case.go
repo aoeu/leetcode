@@ -1,7 +1,14 @@
 package leetcode
 
 func toLowerCase(str string) string {
-	return ""
+	out := make([]rune, len(str))
+	for i, r := range str {
+		if r >= 'A' && r <= 'Z' {
+			r += 'a' - 'A'
+		}
+		out[i] = r
+	}
+	return string(out)
 }
 
 /*
