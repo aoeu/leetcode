@@ -2,8 +2,8 @@ touch 0657-robot-return-to-origin_test.go 0657-robot-return-to-origin.go
 
 git add 0657-robot-return-to-origin_test.go 0657-robot-return-to-origin.go
 
-git commit -m 'Add stubs for problem 905'
+git commit -m 'Add stubs for problem 657'
 
-git commit -m 'Add test case for problem 905'
+git commit -m 'Add test cases for problem 657'
 
-git commit -m 'Add solution for problem 905'
+git commit -m 'Add solution for problem 657'
