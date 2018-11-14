@@ -1,7 +1,54 @@
 package leetcode
 
+var morse = map[rune]string{
+	'a': ".-",
+	'b': "-...",
+	'c': "-.-.",
+	'd': "-..",
+	'e': ".",
+	'f': "..-.",
+	'g': "--.",
+	'h': "....",
+	'i': "..",
+	'j': ".---",
+	'k': "-.-",
+	'l': ".-..",
+	'm': "--",
+	'n': "-.",
+	'o': "---",
+	'p': ".--.",
+	'q': "--.-",
+	'r': ".-.",
+	's': "...",
+	't': "-",
+	'u': "..-",
+	'v': "...-",
+	'w': ".--",
+	'x': "-..-",
+	'y': "-.--",
+	'z': "--..",
+}
+
 func uniqueMorseRepresentations(words []string) int {
-	return 0
+	cache := make(map[string]struct{}, 0)
+	n := 0
+	for _, s := range words {
+		t := transpose(s)
+		if _, ok := cache[t]; ok {
+			continue
+		}
+		cache[t] = struct{}{}
+		n++
+	}
+	return n
+}
+
+func transpose(word string) string {
+	out := ""
+	for _, r := range word {
+		out += morse[r]
+	}
+	return out
 }
 
 /*
